@@ -7,8 +7,52 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+
+  <ion-list>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Passport Number" [(ngModel)]="passportNumber"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Birt Date" [(ngModel)]="birthDate"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Expire Date" [(ngModel)]="expireDate"></ion-input>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <button ion-button block full large icon-left (click)="scanNfc()">
+          <ion-icon name="heart"></ion-icon>Scan</button>
+      </ion-col>
+      <ion-col>
+        <button ion-button block full large icon-left (click)="stopNfc()">
+          <ion-icon name="person"></ion-icon>Stop</button>
+      </ion-col>
+      <!-- <ion-col width-50>
+        <button ion-button block large icon-left>Scan</button>
+      </ion-col> -->
+    </ion-row>
+  </ion-grid>
+
+
+  <ion-card *ngIf="myImg"> <img [src]="myImg">
+  </ion-card>
+
+  <!-- <ion-item>
+    <ion-textarea placeholder="Tap here"
+      [(ngModel)]="converted_image"></ion-textarea>
+
+  </ion-item> -->
+  <p>{{ tagData }}</p>
+  <p>{{ tagTechList }}</p>
+
+  <h1 *ngIf="scanned">Please Scan Access Card</h1>
+
+
 </ion-content>
